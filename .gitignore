@@ -1,0 +1,25 @@
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Java / Spring Boot
+*.class
+*.jar
+*.war
+target/
+bin/
+.gradle/
+build/
+
+# IDE / OS 관련
+.vscode/
+.idea/
+.settings/
+.DS_Store
+Thumbs.db
+
+# Node (혹시 프론트 사용 시)
+node_modules/
