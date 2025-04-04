@@ -23,3 +23,6 @@ Thumbs.db
 
 # Node (혹시 프론트 사용 시)
 node_modules/
+
+# sns 로그인
+application-oauth.properties
