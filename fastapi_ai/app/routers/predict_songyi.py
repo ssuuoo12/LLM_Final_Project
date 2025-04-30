@@ -13,6 +13,7 @@ from app.services.HealthCheckUp import (
     generate_shap_plot_base64,
     FEATURE_ORDER
 )
+from app.services.user_health_memory import user_health_info_store
 
 router = APIRouter()
 
@@ -54,6 +55,13 @@ async def upload_and_predict(
         score, risk, top_features, explanation = predict_score_and_risk(input_data)
         shap_image = generate_shap_plot_base64(input_data)
 
+        # FastAPI 파일 업로드 후 예측 수행 시
+        user_health_info_store[user_id] = {
+        "score": score,
+        "risk": risk,
+        "top_features": top_features,  # 리스트 형태
+        "explanation": explanation
+        }
         # ✅ DB 저장
         record = HealthScore(
             file_name=file.filename,

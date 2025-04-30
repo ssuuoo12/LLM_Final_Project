@@ -353,10 +353,11 @@
 
        
    </div>
-   <!-- ✅ PDF 저장 & 다시 분석 버튼 영역 -->
+   <!-- ✅ 버튼 그룹 통합 -->
    <div class="button-group">
        <button type="button" class="btn download-btn" onclick="downloadPdf()">📥 PDF 리포트 다운로드</button>
        <a href="/health" class="btn retry-btn">🔄 다시 분석하기</a>
+       <a href="/supplement" class="btn" style="background-color: #9b59b6;">💬 챗봇에게 상담하러 가기</a>
    </div>
 <script>
    const sidebar = document.getElementById('sidebar');

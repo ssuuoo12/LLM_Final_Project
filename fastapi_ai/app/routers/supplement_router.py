@@ -7,6 +7,7 @@ from app.database.database import SessionLocal
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from pydantic import conint
+from app.services.user_health_memory import user_health_info_store
 # 송이 추가 2025-04-22
 router = APIRouter()
 # ✅ DB 세션 의존성 주입
@@ -24,7 +25,9 @@ async def recommend_supplement(
 ):
     print("✅ 질문 수신:", question)
     try:
-        response = generate_supplement_response(question)
+        health_info = user_health_info_store.get(user_id)  # 🔍 건강 정보 조회
+        response = generate_supplement_response(question, health_info)
+
 
         # ✅ DB 저장
         chat = SupChatHistory(
