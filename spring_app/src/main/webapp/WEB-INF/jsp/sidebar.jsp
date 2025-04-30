@@ -4,21 +4,46 @@
 
 <div id="sidebar" class="sidebar">
     <ul class="menu">
-        <sec:authorize access="isAuthenticated()">
-            <li><a href="/mypage"><i class="fas fa-user-cog"></i> 마이페이지</a></li>
-        </sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/diagnose"><i class="fas fa-image"></i> 이미지 진단</a></li>	    
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/imagehistory"><i class="fas fa-history"></i> 이미지 진단 이력</a></li>
+		</sec:authorize>
+		
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/health"><i class="fas fa-heartbeat"></i> 건강점수 체크</a></li>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/health/history"><i class="fas fa-notes-medical"></i> 건강점수 이력</a></li> 
+		</sec:authorize>		
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/supplement"><i class="fas fa-capsules"></i> 영양제 추천</a></li>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/SupplementHistory?userId=${sessionScope.loginUser.id}"><i class="fas fa-history"></i>나의 영양제</a></li>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="dietForm"><i class="fas fa-utensils"></i> 식단 추천</a></li>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/chat"><i class="fas fa-robot"></i> 헬슈 챗봇</a></li>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/history"><i class="fas fa-history"></i> 대화 이력조회</a></li>
+		</sec:authorize>
 
-        <%-- 추후 대화 기록 구현 예정 --%>
-        <!--
-        <li>
-            <a href="/history" onclick="toggleHistory(event)"><i class="fas fa-history"></i> 대화 기록</a>
-            <ul id="history-list" class="history-list">
-                <li>2025-04-10 챗봇 상담</li>
-                <li>2025-04-09 건강점수 체크</li>
-                ...
-            </ul>
-        </li>
-        -->
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/mapc"><i class="fas fa-history"></i> 장소 추천 챗봇</a></li>
+		</sec:authorize>
+					
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/mapc/history"><i class="fas fa-user-cog"></i> 장소 대화 이력</a></li>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="/mypage"><i class="fas fa-user-cog"></i> 마이페이지</a></li>
+		</sec:authorize>
+					
     </ul>
 
     <div class="sidebar-footer">

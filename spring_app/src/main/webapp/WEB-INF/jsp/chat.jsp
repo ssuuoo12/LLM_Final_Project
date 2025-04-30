@@ -8,524 +8,459 @@
     <title>Chatbot - Chat</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-	<style>
-	        * {
-	            margin: 0;
-	            padding: 0;
-	            box-sizing: border-box;
-	        }
+   <style>
+           * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+           }
 
-	        body {
-	            font-family: 'Noto Sans KR', 'Segoe UI', sans-serif;
-	            background-color: #f4f4f9;
-	            overflow-y: auto;
-	        }
+           body {
+               font-family: 'Noto Sans KR', 'Segoe UI', sans-serif;
+               background-color: #f4f4f9;
+               overflow-y: auto;
+           }
 
-	        /* 헤더 스타일 */
-	        .header {
-	            width: 100%;
-	            height: 60px;
-	            background-color: #ffffff;
-	            display: flex;
-	            justify-content: space-between;
-	            align-items: center;
-	            padding: 0 20px;
-	            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	            position: fixed;
-	            top: 0;
-	            left: 0;
-	            z-index: 1000;
-	        }
+           /* 헤더 스타일 */
+           .header {
+               width: 100%;
+               height: 60px;
+               background-color: #ffffff;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 0 20px;
+               box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+               position: fixed;
+               top: 0;
+               left: 0;
+               z-index: 1000;
+           }
 
-	        .header-left {
-	            display: flex;
-	            align-items: center;
-	        }
+           .header-left {
+               display: flex;
+               align-items: center;
+           }
 
-	        .toggle-icon {
-	            font-size: 24px;
-	            color: #333;
-	            cursor: pointer;
-	            margin-right: 12px;
-	            transition: transform 0.3s ease, color 0.3s ease;
-	        }
+           .toggle-icon {
+               font-size: 24px;
+               color: #333;
+               cursor: pointer;
+               margin-right: 12px;
+               transition: transform 0.3s ease, color 0.3s ease;
+           }
 
-	        .toggle-icon:hover {
-	            transform: rotate(90deg);
-	            color: #007bff;
-	        }
+           .toggle-icon:hover {
+               transform: rotate(90deg);
+               color: #007bff;
+           }
 
-	        .header-title {
-	            font-size: 18px;
-	            font-weight: 600;
-	            color: #333;
-	        }
+           .header-title {
+               font-size: 18px;
+               font-weight: 600;
+               color: #333;
+           }
 
-	        .header-right {
-	            display: flex;
-	            align-items: center;
-	            gap: 10px;
-	        }
+           .header-right {
+               display: flex;
+               align-items: center;
+               gap: 10px;
+           }
 
-	        .user-icon {
-	            font-size: 30px;
-	            color: #666;
-	        }
+           .user-icon {
+               font-size: 30px;
+               color: #666;
+           }
 
-	        .btn {
-	            padding: 8px 16px;
-	            border: none;
-	            border-radius: 5px;
-	            cursor: pointer;
-	            font-size: 14px;
-	            font-weight: 500;
-	            color: white;
-	            transition: background-color 0.3s ease;
-	        }
+           .btn {
+               padding: 8px 16px;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 14px;
+               font-weight: 500;
+               color: white;
+               transition: background-color 0.3s ease;
+			   background-color: #007bff;
+           }
 
-	        .login-btn {
-	            background-color: #007bff;
-	        }
+           .login-btn {
+               background-color: #007bff;
+           }
 
-	        .login-btn:hover {
-	            background-color: #0056b3;
-	        }
+           .login-btn:hover {
+               background-color: #0056b3;
+           }
 
-	        .signup-btn {
-	            background-color: #28a745;
-	        }
+           .signup-btn {
+               background-color: #28a745;
+           }
 
-	        .signup-btn:hover {
-	            background-color: #218838;
-	        }
+           .signup-btn:hover {
+               background-color: #218838;
+           }
 
-	        /* 사이드바 스타일 */
-	        .sidebar {
-	            width: 220px;
-	            height: 100vh;
-	            background: linear-gradient(180deg, #1a2a44 0%, #2c3e50 100%);
-	            color: white;
-	            padding-top: 80px;
-	            position: fixed;
-	            top: 0;
-	            left: 0;
-	            transform: translateX(-220px);
-	            transition: transform 0.3s ease;
-	            z-index: 999;
-	            display: flex;
-	            flex-direction: column;
-	            justify-content: space-between;
-	        }
+           /* 사이드바 스타일 */
+           .sidebar {
+               width: 220px;
+               height: 100vh;
+               background: linear-gradient(180deg, #1a2a44 0%, #2c3e50 100%);
+               color: white;
+               padding-top: 80px;
+               position: fixed;
+               top: 0;
+               left: 0;
+               transform: translateX(-220px);
+               transition: transform 0.3s ease;
+               z-index: 999;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+           }
 
-	        .sidebar.active {
-	            transform: translateX(0);
-	        }
+           .sidebar.active {
+               transform: translateX(0);
+           }
 
-	        .menu {
-	            list-style: none;
-	            padding: 0;
-	            margin: 0;
-	            flex-grow: 1;
-	        }
+           .menu {
+               list-style: none;
+               padding: 0;
+               margin: 0;
+               flex-grow: 1;
+           }
 
-	        .menu li {
-	            padding: 15px 20px;
-	            cursor: pointer;
-	            font-size: 16px;
-	            display: flex;
-	            align-items: center;
-	            gap: 12px;
-	            transition: background-color 0.3s ease;
-	        }
+           .menu li {
+               padding: 15px 20px;
+               cursor: pointer;
+               font-size: 16px;
+               display: flex;
+               align-items: center;
+               gap: 12px;
+               transition: background-color 0.3s ease;
+           }
 
-	        .menu li:hover {
-	            background-color: #3b5998;
-	        }
+           .menu li:hover {
+               background-color: #3b5998;
+           }
 
-	        .menu li a {
-	            color: #e0e0e0;
-	            text-decoration: none;
-	            display: flex;
-	            align-items: center;
-	            gap: 12px;
-	            width: 100%;
-	            transition: color 0.3s ease;
-	        }
+           .menu li a {
+               color: #e0e0e0;
+               text-decoration: none;
+               display: flex;
+               align-items: center;
+               gap: 12px;
+               width: 100%;
+               transition: color 0.3s ease;
+           }
 
-	        .menu li a:hover {
-	            color: #ffffff;
-	        }
+           .menu li a:hover {
+               color: #ffffff;
+           }
 
-	        .menu li a i {
-	            font-size: 18px;
-	            color: #a3bffa;
-	            transition: color 0.3s ease;
-	        }
+           .menu li a i {
+               font-size: 18px;
+               color: #a3bffa;
+               transition: color 0.3s ease;
+           }
 
-	        .menu li a:hover i {
-	            color: #ffffff;
-	        }
+           .menu li a:hover i {
+               color: #ffffff;
+           }
 
-	        .history-list {
-	            list-style: none;
-	            padding: 0;
-	            margin: 0 0 0 30px;
-	            display: none;
-	        }
+           .sidebar-footer {
+               padding: 20px;
+               display: flex;
+               flex-direction: column;
+               gap: 10px;
+           }
 
-	        .history-list li {
-	            padding: 10px 20px;
-	            font-size: 14px;
-	            color: #bdc3c7;
-	        }
+           .footer-btn {
+               padding: 10px;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 14px;
+               font-weight: 500;
+               color: #e0e0e0;
+               background-color: #34495e;
+               text-align: center;
+               text-decoration: none;
+               display: flex;
+               align-items: center;
+               gap: 10px;
+               transition: background-color 0.3s ease, color 0.3s ease;
+           }
 
-	        .history-list li:hover {
-	            background-color: #3e5c76;
-	        }
+           .footer-btn i {
+               font-size: 16px;
+               color: #a3bffa;
+           }
 
-	        .sidebar-footer {
-	            padding: 20px;
-	            display: flex;
-	            flex-direction: column;
-	            gap: 10px;
-	        }
+           .footer-btn:hover {
+               background-color: #3b5998;
+               color: #ffffff;
+           }
 
-	        .footer-btn {
-	            padding: 10px;
-	            border: none;
-	            border-radius: 5px;
-	            cursor: pointer;
-	            font-size: 14px;
-	            font-weight: 500;
-	            color: #e0e0e0;
-	            background-color: #34495e;
-	            text-align: center;
-	            text-decoration: none;
-	            display: flex;
-	            align-items: center;
-	            gap: 10px;
-	            transition: background-color 0.3s ease, color 0.3s ease;
-	        }
+           .footer-btn:hover i {
+               color: #ffffff;
+           }
 
-	        .footer-btn i {
-	            font-size: 16px;
-	            color: #a3bffa;
-	        }
+           /* 메인 콘텐츠 스타일 */
+           #main-content {
+               padding: 80px 30px 150px 30px; /* 하단 패딩을 더 늘려서 대화창 공간 확보 */
+               transition: margin-left 0.3s ease;
+               min-height: 100vh;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+           }
 
-	        .footer-btn:hover {
-	            background-color: #3b5998;
-	            color: #ffffff;
-	        }
+           .content-shifted {
+               margin-left: 220px;
+           }
 
-	        .footer-btn:hover i {
-	            color: #ffffff;
-	        }
+           /* 중앙 텍스트 스타일 */
+           .chat-welcome {
+               font-size: 28px;
+               font-weight: 600;
+               color: #333;
+               text-align: center;
+               margin-bottom: 20px;
+           }
 
-	        /* 메인 콘텐츠 스타일 */
-	        #main-content {
-	            padding: 80px 30px 150px 30px; /* 하단 패딩을 더 늘려서 대화창 공간 확보 */
-	            transition: margin-left 0.3s ease;
-	            min-height: 100vh;
-	            display: flex;
-	            flex-direction: column;
-	            align-items: center;
-	            justify-content: center;
-	        }
+           /* 대화창 스타일 */
+           .chat-input-container {
+				position: fixed;
+			    bottom: 20px;
+			    left: 50%;
+			    transform: translateX(-50%);
+			    width: 100%;
+			    max-width: 800px;
+			    background-color: #ffffff;
+			    border-radius: 15px;
+			    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			    padding: 15px 20px;
+			    display: flex;
+			    flex-direction: column;
+			    gap: 10px;
+           }
 
-	        .content-shifted {
-	            margin-left: 220px;
-	        }
+           .chat-input-wrapper {
+               display: flex;
+               align-items: center;
+               width: 100%;
+               position: relative;
+               padding: 10px 0;
+           }
 
-	        /* 중앙 텍스트 스타일 */
-	        .chat-welcome {
-	            font-size: 28px;
-	            font-weight: 600;
-	            color: #333;
-	            text-align: center;
-	            margin-bottom: 20px;
-	        }
+         .chat-input {
+             flex-grow: 1;
+             padding: 15px 20px 15px 50px; /* 왼쪽 패딩을 늘려 모델 선택 버튼 공간 확보 */
+             border: 1px solid #ddd;
+             border-radius: 25px;
+             font-family: 'Roboto', sans-serif; /* 글꼴 변경 */
+             font-size: 16px;
+             line-height: 1.5;
+             min-height: 55px; /* 최소 높이 설정 */
+             max-height: 150px; /* 최대 높이 제한 */
+             overflow-y: auto; /* 최대 높이 초과 시 스크롤 표시 */
+             outline: none;
+             transition: border-color 0.3s ease;
+             resize: none; /* 크기 조절 비활성화 */
+         }
 
-	        /* 대화창 스타일 */
-	        .chat-input-container {
-	            position: fixed;
-	            bottom: 20px;
-	            left: 50%;
-	            transform: translateX(-50%);
-	            width: 100%;
-	            max-width: 800px;
-	            display: flex;
-	            flex-direction: column;
-	            align-items: center;
-	            gap: 10px;
-	            padding: 15px 20px; /* 패딩 증가 */
-	            background-color: #ffffff;
-	            border-radius: 15px;
-	            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	            min-height: 100px; /* 대화창 높이 증가 */
-	        }
+           .chat-input:focus {
+               border-color: #007bff;
+           }
 
-	        .chat-input-wrapper {
-	            display: flex;
-	            align-items: center;
-	            width: 100%;
-	            position: relative;
-	            padding: 10px 0;
-	        }
+           .send-btn {
+               background-color: #007bff;
+               border: none;
+               border-radius: 50%;
+               width: 40px;
+               height: 40px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               cursor: pointer;
+               margin-left: 10px;
+               transition: background-color 0.3s ease;
+           }
 
-			.chat-input {
-			    flex-grow: 1;
-			    padding: 15px 20px 15px 50px; /* 왼쪽 패딩을 늘려 모델 선택 버튼 공간 확보 */
-			    border: 1px solid #ddd;
-			    border-radius: 25px;
-			    font-family: 'Roboto', sans-serif; /* 글꼴 변경 */
-			    font-size: 16px;
-			    line-height: 1.5;
-			    min-height: 55px; /* 최소 높이 설정 */
-			    max-height: 150px; /* 최대 높이 제한 */
-			    overflow-y: auto; /* 최대 높이 초과 시 스크롤 표시 */
-			    outline: none;
-			    transition: border-color 0.3s ease;
-			    resize: none; /* 크기 조절 비활성화 */
-			}
+           .send-btn i {
+               font-size: 16px;
+               color: white;
+           }
 
-	        .chat-input:focus {
-	            border-color: #007bff;
-	        }
+           .send-btn:hover {
+               background-color: #0056b3;
+           }
 
-	        .send-btn {
-	            background-color: #007bff;
-	            border: none;
-	            border-radius: 50%;
-	            width: 40px;
-	            height: 40px;
-	            display: flex;
-	            align-items: center;
-	            justify-content: center;
-	            cursor: pointer;
-	            margin-left: 10px;
-	            transition: background-color 0.3s ease;
-	        }
+         .alert-box {
+                 padding: 12px;
+                 background-color: #d4edda;
+                 border: 1px solid #c3e6cb;
+                 color: #155724;
+                 border-radius: 6px;
+                 margin-bottom: 20px;
+                 text-align: center;
+                 font-weight: bold;
+             }
+			 #chat-output {
+			   width: 100%;
+			   max-width: 800px;
+			   padding: 10px;
+			   margin-top: 20px;
+			   background-color: #fff;
+			   border-radius: 8px;
+			   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			   color: #333;
+			   font-size: 16px;
+			   line-height: 1.6;
+			   white-space: pre-line;  /* ✅ 이 줄을 추가하세요! */
+			 }
+			 /* 전송 버튼 위치 및 스타일 */
+			 #chat-form .btn {
+			     min-width: 80px;
+			     height: 44px;
+			     border-radius: 25px;
+			     background-color: #007bff;
+			     color: white;
+			     font-weight: bold;
+			     font-size: 15px;
+			     border: none;
+			     transition: background-color 0.3s ease;
+			 }
+			 /* 입력 필드 및 버튼을 나란히 정렬 */
+			 #chat-form {
+			     width: 100%;
+			     display: flex;
+			     align-items: center;
+			     gap: 10px;
+			 }
+			 				
+			 #chat-form .btn:hover {
+			     background-color: #0056b3;
+			 }
+			 /* 입력창 스타일 개선 */
+			 #userInput {
+			     flex-grow: 1;
+			     padding: 14px 20px;
+			     border: 1px solid #ddd;
+			     border-radius: 25px;
+			     font-size: 16px;
+			     font-family: 'Roboto', sans-serif;
+			     outline: none;
+			     transition: border-color 0.3s ease;
+			     background-color: #f9f9f9;
+			 }
 
-	        .send-btn i {
-	            font-size: 16px;
-	            color: white;
-	        }
-
-	        .send-btn:hover {
-	            background-color: #0056b3;
-	        }
-
-	        /* 모델 선택 드롭다운 스타일 */
-			.model-dropdown-container {
-			    position: absolute;
-			    top: -12px;
-			    left: 20px;
-			    z-index: 10;
-			}
-
-
-	        .model-dropdown-toggle {
-	            background-color: #007bff;
-	            border: none;
-	            border-radius: 50%;
-	            width: 30px;
-	            height: 30px;
-	            display: flex;
-	            justify-content: center;
-	            align-items: center;
-	            cursor: pointer;
-	        }
-
-	        .model-dropdown-toggle i {
-	            color: white;
-	            font-size: 14px;
-	        }
-
-			.model-dropdown {
-			    display: none;
-			    position: absolute;
-			    bottom: 40px; /* top 대신 bottom 사용 */
-			    left: 0;
-			    background-color: white;
-			    border: 1px solid #ccc;
-			    border-radius: 8px;
-			    list-style: none;
-			    padding: 10px 0;
-			    width: 160px;
-			    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			    z-index: 1000;
-			}
-	        .model-dropdown li {
-	            padding: 8px 16px;
-	            cursor: pointer;
-	            font-size: 14px;
-	            color: #333;
-	        }
-
-	        .model-dropdown li:hover {
-	            background-color: #f0f0f0;
-	        }
-
-	        /* 파일 및 이미지 업로드 버튼 스타일 */
-	        .upload-buttons {
-	            display: flex;
-	            gap: 8px;
-	            width: 100%;
-	            justify-content: flex-start; /* 왼쪽 정렬 */
-	            padding: 0 15px 10px 15px;
-	        }
-
-	        .upload-btn {
-	            display: flex;
-	            justify-content: center;
-	            align-items: center;
-	            cursor: pointer;
-	            transition: color 0.3s ease;
-	        }
-
-	        .upload-btn i {
-	            color: #6c757d; /* 기본 색상 */
-	            font-size: 14px; /* 아이콘 크기 줄임 */
-	        }
-
-	        .upload-btn.image i {
-	            color: #17a2b8; /* 이미지 업로드 아이콘 색상 */
-	        }
-
-	        .upload-btn:hover i {
-	            color: #5a6268;
-	        }
-
-	        .upload-btn.image:hover i {
-	            color: #138496;
-	        }
-			.alert-box {
-			        padding: 12px;
-			        background-color: #d4edda;
-			        border: 1px solid #c3e6cb;
-			        color: #155724;
-			        border-radius: 6px;
-			        margin-bottom: 20px;
-			        text-align: center;
-			        font-weight: bold;
-			    }
-	    </style>
+			 #userInput:focus {
+			     border-color: #007bff;
+			     background-color: #fff;
+			 }
+       </style>
 </head>
+
 <body>
-	
+
     <jsp:include page="header.jsp" />
     <jsp:include page="sidebar.jsp" />
-	
+
     <div id="main-content">
-        <div class="chat-welcome">안녕하세요! 챗봇과 대화를 시작해보세요!</div>
+        <div class="chat-welcome">헬슈케어 챗봇</div>
+		<!-- 챗봇 응답 출력 전 '답변 생성중...' 표시 -->
+		<div id="loading-msg" style="display:none; font-weight: bold; color: #007bff; margin-bottom: 10px;">
+		    답변 생성중...
+		</div>
 
-        <div class="chat-input-container">
-            <div class="model-dropdown-container">
-                <button id="model-dropdown-toggle" class="model-dropdown-toggle">
-                    <i class="fas fa-robot"></i>
-                </button>
-                <ul id="model-dropdown" class="model-dropdown">
-                    <li onclick="selectModel('image')">이미지 진단</li>
-                    <li onclick="selectModel('score')">건강점수 체크</li>
-                    <li onclick="selectModel('diet')">식단 추천</li>
-                </ul>
-            </div>
-			<sec:authorize access="isAuthenticated()">
-			    <!-- 로그인된 사용자 UI -->
-			    <div class="chat-input-wrapper">
-			        <textarea class="chat-input" placeholder="메시지를 입력하세요..." rows="1"></textarea>
-			        <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+		<!-- 챗봇 응답 출력 영역 -->
+		<div id="chat-output"></div>
+
+			<div class="chat-input-container">
+			        <!-- 인증된 사용자만 입력 가능 -->
+			        <sec:authorize access="isAuthenticated()">
+						<form id="chat-form">
+						    <input type="text" id="userInput" name="question" placeholder="증상 또는 보험관련 질문을 해주세요!" required />
+						    <button type="submit" class="btn">전송</button>
+						</form>
+			        </sec:authorize>
+
+			        <sec:authorize access="isAnonymous()">
+			            <h3>로그인 또는 회원가입 후 이용 가능합니다.</h3>
+			        </sec:authorize>
 			    </div>
-			</sec:authorize>
-
-			<sec:authorize access="isAnonymous()">
-			    <!-- 로그인하지 않은 사용자 -->
-			    <h3>로그인 또는 회원가입 후 이용 가능합니다.</h3>
-			</sec:authorize>
-            <div class="upload-buttons">
-                <label for="file-upload" class="upload-btn">
-                    <i class="fas fa-paperclip"></i>
-                </label>
-                <input type="file" id="file-upload" style="display: none;" multiple />
-
-                <label for="image-upload" class="upload-btn image">
-                    <i class="fas fa-image"></i>
-                </label>
-                <input type="file" id="image-upload" style="display: none;" accept="image/*" multiple />
-            </div>
-        </div>
     </div>
+	<script>
+	    const sidebar = document.getElementById('sidebar');
+	    const content = document.getElementById('main-content');
+	    function toggleSidebar() {
+	        sidebar.classList.toggle('active');
+	        content.classList.toggle('content-shifted');
+	    }
 
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const content = document.getElementById('main-content');
-            sidebar.classList.toggle('active');
-            content.classList.toggle('content-shifted');
-        }
+	    function sendMessage() {
+	        const input = document.getElementById("userInput");
+	        const message = input.value.trim();
+	        const loading = document.getElementById("loading-msg");
+	        const output = document.getElementById("chat-output");
 
-        function toggleHistory(event) {
-            event.preventDefault();
-            const historyList = document.getElementById('history-list');
-            historyList.style.display = historyList.style.display === 'block' ? 'none' : 'block';
-        }
+	        if (!message) return;
 
-        const dropdownToggle = document.getElementById('model-dropdown-toggle');
-        const dropdown = document.getElementById('model-dropdown');
-        dropdownToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        });
+	        // 로딩 메시지 표시
+	        loading.style.display = "block";
+	        loading.innerText = "답변 생성중...";
 
-        document.addEventListener('click', (e) => {
-            if (dropdown.style.display === 'block' && !dropdown.contains(e.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
+	        fetch("/chat/send-ajax", {
+	            method: "POST",
+	            headers: {
+	                "Content-Type": "application/json"
+	            },
+	            body: JSON.stringify({
+	                user_id: "${sessionScope.loginUser.userId}",
+	                message: message
+	            })
+	        })
+	        .then(res => res.json())
+	        .then(data => {
+	            loading.style.display = "none";
+	            input.value = "";
+	            const userBubble = document.createElement("div");
+	            userBubble.className = "bubble user";
+	            userBubble.innerHTML = '<i class="fas fa-user"></i> ' + message;
+	            output.appendChild(userBubble);
 
-        function selectModel(modelName) {
-            alert(`선택된 모델: ${modelName}`);
-            dropdown.style.display = 'none';
-        }
+	            const botBubble = document.createElement("div");
+	            botBubble.className = "bubble bot";
+	            botBubble.innerHTML = '<i class="fas fa-robot"></i> ' + data.response + '<hr>';
+	            output.appendChild(botBubble);
 
-        document.getElementById('file-upload').addEventListener('change', function () {
-            const files = this.files;
-            if (files.length > 0) {
-                alert(`${files.length}개의 파일을 업로드했습니다.`);
-            }
-        });
+	            output.scrollTop = output.scrollHeight;
+	        })
+	        .catch(err => {
+	            loading.innerText = "❗ 오류 발생: " + err;
+	        });
+	    }
 
-        document.getElementById('image-upload').addEventListener('change', function () {
-            const images = this.files;
-            if (images.length > 0) {
-                alert(`${images.length}개의 이미지를 업로드했습니다.`);
-            }
-        });
+	    document.getElementById("userInput").addEventListener("keydown", function(event) {
+	        if (event.key === "Enter" && !event.shiftKey) {
+	            event.preventDefault();
+	            sendMessage();
+	        }
+	    });
+		document.getElementById("chat-form").addEventListener("submit", function(event) {
+		    event.preventDefault();
+		    sendMessage();
+		});
 
-        const chatInput = document.querySelector('.chat-input');
-        chatInput.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = Math.min(this.scrollHeight, 150) + 'px';
-        });
-        chatInput.style.height = '55px';
-    </script>
-	<c:if test="${not empty welcomeMessage}">
-		<c:if test="${sessionScope.loginUser.forceChange}">
-			    <script>
-			        alert("임시 비밀번호로 로그인하셨습니다.\n마이페이지에서 반드시 비밀번호를 변경해주세요!");
-			    </script>
-		</c:if>
-	    <script>alert('${welcomeMessage}');</script>
-	</c:if>
-	<c:if test="${not empty error}">
-	    <script>alert('${error}');</script>
-	</c:if>
-	<c:if test="${not empty regmessage}">
-	    <script>alert("${regmessage}");</script>
-	</c:if>
-	<c:if test="${not empty regerrorMessage}">
-	    <script>alert("${regerrorMessage}");</script>
-	</c:if>
+		document.getElementById("userInput").addEventListener("keydown", function(event) {
+		    if (event.key === "Enter" && !event.shiftKey) {
+		        event.preventDefault();
+		        // ❌ 여기서 sendMessage()를 또 호출하지 않도록 함
+		        // 이미 submit 이벤트에서 처리함
+		    }
+		});
+	</script
 </body>
-
 </html>

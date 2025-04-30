@@ -27,6 +27,16 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    
+    //송이 추가
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.7'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14' // 최신 안정 버전 권장
+    // 송이추가 마이바티스 어노테이션
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+    
+    //지연 추가
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2' // 또는 'mysql:mysql-connector-java' 등 DB에 맞게
 }
 
 

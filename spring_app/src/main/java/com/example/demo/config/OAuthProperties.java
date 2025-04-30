@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 @Component
-@Primary // ✅ 이거 추가
+@Primary
 @ConfigurationProperties(prefix = "custom.oauth.google")
 public class OAuthProperties {
     private String clientId;

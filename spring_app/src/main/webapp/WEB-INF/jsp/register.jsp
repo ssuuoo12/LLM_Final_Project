@@ -146,7 +146,7 @@
 		        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Login" style="height: 40px;">
 		    </a>
 		</div>
-        <p>이미 계정이 있으신가요? <a href="/login">로그인</a></p>
+        <p>이미 계정이 있으신가요? <a href="/chat">로그인</a></p>
     </div>
 </body>
 </html>

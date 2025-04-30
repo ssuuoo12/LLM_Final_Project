@@ -24,7 +24,13 @@ public class CustomUserDetails implements UserDetails {
     public String getUsername() {
         return user.getUserName(); // 또는 user.getUserId()도 가능
     }
+    
+    // 지연 추가
+    public String getUserId() {
+        return user.getUserId(); 
+    }
 
+    
     @Override
     public String getPassword() {
         return user.getPassword();

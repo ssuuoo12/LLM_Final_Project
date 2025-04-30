@@ -22,18 +22,18 @@ public class SecurityConfig {
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/", "/chat", "/login", "/logout", "/register", "/find", "/find/**", "/css/**", "/js/**", "/images/**").permitAll()
+                .antMatchers("/", "/index", "/login", "/logout", "/register", "/find", "/find/**", "/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
             .and()
             .oauth2Login()
-            	.loginPage("/chat") // 모달 창 사용
+            	.loginPage("/index") // 모달 창 사용
             	.userInfoEndpoint()
                 .userService(customOAuth2UserService) // 사용자 정보 처리할 서비스
             .and()
             	.successHandler(oAuth2SuccessHandler) // 로그인 성공 후 처리
             .and()
             .logout()
-                .logoutSuccessUrl("/chat")
+                .logoutSuccessUrl("/index")
                 .invalidateHttpSession(true);
 
         return http.build();

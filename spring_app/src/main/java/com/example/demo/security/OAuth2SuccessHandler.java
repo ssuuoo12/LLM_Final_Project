@@ -18,6 +18,6 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
         Authentication authentication
     ) throws IOException, ServletException {
         // 로그인 성공 후 리디렉션
-        response.sendRedirect("/chat");
+        response.sendRedirect("/index");
     }
 }

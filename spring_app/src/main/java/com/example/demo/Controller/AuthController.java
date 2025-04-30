@@ -35,11 +35,11 @@ public class AuthController {
     
     @GetMapping("/")
     public String chat() {
-        return "chat";
+        return "index";
     }
-    @GetMapping("/chat")
+    @GetMapping("/index")
     public String chat2() {
-        return "chat";
+        return "index";
     }
     
     @PostMapping("/login")
@@ -65,17 +65,17 @@ public class AuthController {
             }
             System.out.println("로그인된 사용자 forceChange 상태: " + user.isForceChange());
             redirectAttributes.addFlashAttribute("welcomeMessage", user.getUserName() + "님 환영합니다!");
-            return "redirect:/chat";
+            return "redirect:/index";
         } else {
             redirectAttributes.addFlashAttribute("error", "아이디 또는 비밀번호가 올바르지 않습니다.");
-            return "redirect:/chat";
+            return "redirect:/index";
         }
     }
     
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/chat";
+        return "redirect:/index";
     }
     
     @GetMapping("/register")
@@ -88,7 +88,7 @@ public class AuthController {
         boolean success = userService.register(userDTO);
         if (success) {
         	ra.addFlashAttribute("regmessage", "회원가입이 완료되었습니다!");
-            return "redirect:/"; // 성공 시 chat 페이지로 리다이렉트
+            return "redirect:/index"; // 성공 시 index 페이지로 리다이렉트
         } else {
         	ra.addFlashAttribute("regerrorMessage", "회원가입에 실패했습니다.");
             return "register"; // 실패 시 다시 회원가입 페이지로
@@ -143,7 +143,7 @@ public class AuthController {
         }
         if (userId != null && userService.delete(userId)) {
             session.invalidate();
-            return "redirect:/chat";
+            return "redirect:/index";
         } else {
             return "redirect:/mypage?error=탈퇴에 실패했습니다";
         }

@@ -12,4 +12,6 @@ public interface UserRepository {
     // 비밀번호 변경용 메서드
     boolean updatePassword(String userId, String encodedPw, boolean forceChange);
     String findUserIdByNameAndEmail(String name, String email);
+    
+    UserVO findByUserName(String userName);
 }

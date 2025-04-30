@@ -15,7 +15,13 @@ import lombok.RequiredArgsConstructor;
 public class UserRepositoryImpl implements UserRepository {
 
     private final JdbcTemplate jdbcTemplate;
-
+    // 지연 추가
+    @Override
+    public UserVO findByUserName(String userName) {
+        String sql = "SELECT * FROM user WHERE user_name = ?";
+        return jdbcTemplate.queryForObject(sql, new UserRowMapper(), userName);
+    }
+    
     @Override
     public UserVO findByUserId(String userId) {
         try {

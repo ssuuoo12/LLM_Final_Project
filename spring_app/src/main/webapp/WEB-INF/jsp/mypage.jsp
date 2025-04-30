@@ -114,7 +114,7 @@
             </c:otherwise>
         </c:choose>
 
-        <button onclick="location.href='/chat'" style="background-color:#28a745; margin-top:10px;">채팅 페이지로 이동</button>
+        <button onclick="location.href='/index'" style="background-color:#28a745; margin-top:10px;">홈으로 이동</button>
     </div>
 
     <script>

@@ -5,7 +5,7 @@
 <div class="header">
     <div class="header-left">
         <i class="fas fa-bars toggle-icon" onclick="toggleSidebar()"></i>
-        <span class="header-title">헬스케어</span>
+        <span class="header-title">헬슈케어:Healthcare와 insurance의 전략을 담다.</span>
     </div>
 
     <div class="header-right">
@@ -59,7 +59,7 @@
 		</div>
         
 		<div style="text-align: center; margin-top: 20px;">
-            <h4>소셜 로그인</h4>
+            <h4>구글 계정으로 로그인</h4>
             <a href="/oauth2/authorization/google">
                 <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Login" style="height: 40px;">
             </a>
