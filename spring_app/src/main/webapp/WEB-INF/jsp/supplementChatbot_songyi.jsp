@@ -359,20 +359,20 @@
 <body data-user-id="${sessionScope.loginUser.id}">
     <jsp:include page="header.jsp" />
     <jsp:include page="sidebar.jsp" />
-    <div class="chat-wrapper">
-        <div class="chat-header">
-            <i class="fas fa-capsules"></i> 영양제 추천 챗봇
-        </div>
-        <div class="chat-box" id="chat-box"></div>
-        <form id="chat-form">
-            <input type="text" id="question-input" name="question" placeholder="궁금한 점을 입력해 보세요..." required />
-            <button type="submit" class="btn">전송</button>
-        </form>
-    </div>
-    <div id="loadingMessage">
-        ⏳ 로딩 중입니다...<br>
-        <img src="https://i.gifer.com/ZZ5H.gif" alt="로딩중">
-    </div>
+	<div class="chat-wrapper">
+	    <div class="chat-header">
+	        <i class="fas fa-capsules"></i> 건강점수 기반 건강기능식품 추천 챗봇
+	    </div>
+	    <div class="chat-box" id="chat-box"></div>
+	    <form id="chat-form">
+	        <input type="text" id="question-input" name="question" placeholder="궁금한 점을 입력해 보세요..." required />
+	        <button type="submit" class="btn">전송</button>
+	    </form>
+	</div>
+	<div id="loadingMessage">
+	    ⏳ 로딩 중입니다...<br>
+	    <img src="https://i.gifer.com/ZZ5H.gif" alt="로딩중">
+	</div>
 	<script>
 	        let globalUserId = null;
 

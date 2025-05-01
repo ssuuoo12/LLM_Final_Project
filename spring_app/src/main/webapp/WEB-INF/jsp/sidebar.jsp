@@ -18,10 +18,10 @@
 			<li><a href="/health/history"><i class="fas fa-notes-medical"></i> 건강점수 이력</a></li> 
 		</sec:authorize>		
 		<sec:authorize access="isAuthenticated()">
-			<li><a href="/supplement"><i class="fas fa-capsules"></i> 영양제 추천</a></li>
+			<li><a href="/supplement"><i class="fas fa-capsules"></i> 건강점수기반 건강기능식품 추천 챗봇</a></li>
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
-			<li><a href="/SupplementHistory?userId=${sessionScope.loginUser.id}"><i class="fas fa-history"></i>나의 영양제</a></li>
+			<li><a href="/SupplementHistory?userId=${sessionScope.loginUser.id}"><i class="fas fa-history"></i>건강점수기반 건강기능식품 추천 챗봇 대화 이력</a></li>
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="dietForm"><i class="fas fa-utensils"></i> 식단 추천</a></li>
