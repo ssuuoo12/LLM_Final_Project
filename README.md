@@ -2,10 +2,11 @@
 <p align="center">
   <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/fastapi-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
+  <img src="https://img.shields.io/badge/spring-boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
   <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
   <img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=mariadb&logoColor=white" />
   <img src="https://img.shields.io/badge/langchain-000000?style=for-the-badge&logo=chainlink&logoColor=white" />
+  <img src="https://img.shields.io/badge/pytorch-EE4C2C?style=for-the-badge&logo=chainlink&logoColor=white" />
 </p>
 ## 프로젝트 기간
 기간 : 25/04/01~2025/04/30
@@ -21,13 +22,14 @@
 - **맞춤형 건강 관리**: 개인화된 식단 및 건강 시설 추천 제공
 - **사용자 이력 관리**: 분석 기록 저장 및 건강 상태 변화 추적
 
-## 기술 스택
 
+## 기술 스택
 | 영역 | 기술 |
 |------|------|
-| 백엔드 | Flask, Python, PyMySQL |
-| 프론트엔드 | HTML, CSS, JavaScript |
-| 데이터베이스 | MariaDB/MySQL |
+| 백엔드 | Python,Java |
+| 프론트엔드 | HTML, CSS, JavaScript,jquery |
+| 데이터베이스 | MariaDB |
+| 라이브러리 | Faiss, Tensorflow, Pytorch |
 | 데이터 시각화 | Matplotlib, NumPy |
 
 
