@@ -24,33 +24,44 @@
 - **사용자 이력 관리**: 분석 기록 저장 및 건강 상태 변화 추적
 
 
-## 기술 스택
-| 영역 | 기술 |
-|------|------|
-| 백엔드 | Python,Java |
-| 프론트엔드 | HTML, CSS, JavaScript,jquery |
-| 데이터베이스 | MariaDB |
-| 라이브러리 | Faiss, Tensorflow, Pytorch |
+## 기술 스택 세부 설명
+5.1 Spring Boot 애플리케이션
 
-## 전체 아키텍처 개요
-+-------------------+
-                                |                   |
-+---------------+              |   사용자 브라우저    |
-|               |              |                   |
-|  MariaDB      +<------------>+-------------------+
-|  Database     |              |
-|               |              |
-+---------------+              |                   |
-      ^                        |   Spring Boot     |
-      |                        |   Application     |
-      v                        |   (8082 포트)      |
-+---------------+              |                   |
-|               |              +--------+----------+
-|  FastAPI      |                       |
-|  Service      +<----------------------+
-|  (8000 포트)   |
-|               |
-+---------------+
+프레임워크: Spring Boot 2.6.7
+빌드 도구: Gradle
+뷰 템플릿: JSP (JavaServer Pages)
+인증: Spring Security + OAuth2
+데이터베이스 연결: JDBC Template, MyBatis
+HTTP 클라이언트: RestTemplate
+
+5.2 FastAPI 애플리케이션
+
+프레임워크: FastAPI
+ORM: SQLAlchemy
+데이터 처리: Pandas, NumPy
+AI 모델:
+
+이미지 진단: ONNX Runtime, PyTorch
+건강 점수: RandomForest, SHAP
+챗봇: LangChain, Gemma, LM studio (LLM)
+
+
+## FastApi 디렉토리 구조
+```
+├── app/                    # 애플리케이션 핵심 모듈
+│   ├── database/           # 데이터베이스 연결 및 ORM 정의
+│   ├── dataset/            # 학습 및 서비스용 데이터셋
+│   ├── model/              # 사전 학습된 AI 모델 파일 저장
+│   ├── routers/            # REST API 엔드포인트 정의
+│   └── services/           # 비즈니스 로직 및 모델 추론 서비스
+├── vector_index/           # 벡터 인덱스 저장 (FAISS)
+├── .env                    # API 키 및 환경 설정
+├── Brain.py                # 뇌종양 진단 모델 ONNX 변환
+├── eye.py                  # 안구질환 진단 모델 ONNX 변환
+├── init_faiss.py           # FAISS 벡터 인덱스 초기화 스크립트
+└── main.py                 # 메인 애플리케이션 시작점
+```
+
 
 
 ## 실행 방법
