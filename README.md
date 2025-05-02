@@ -31,7 +31,7 @@
 | 프론트엔드 | HTML, CSS, JavaScript,jquery |
 | 데이터베이스 | MariaDB |
 | 라이브러리 | Faiss, Tensorflow, Pytorch |
-| 데이터 시각화 | Matplotlib, NumPy |
+
 
 
 ## 실행 방법
