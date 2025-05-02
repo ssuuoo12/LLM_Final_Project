@@ -45,6 +45,15 @@
 건강 점수: RandomForest, SHAP
 챗봇: LangChain, Gemma, LM studio (LLM)
 
+| 기능 | 라이브러리 |
+|------|------|
+| 챗봇 | LangChain, Gemma, LM studio (LLM) |
+| 식단 | pandas |
+| 건강 점수 | RandomForest, SHAP |
+| 이미지 진단 | Tensorflow, PyTorch, ONNX Runtime |
+
+
+
 
 ## FastApi 디렉토리 구조
 ```
