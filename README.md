@@ -25,23 +25,23 @@
 
 
 ## 기술 스택 세부 설명
-5.1 Spring Boot 애플리케이션
+### Spring Boot 애플리케이션
 
-프레임워크: Spring Boot 2.6.7
-빌드 도구: Gradle
-뷰 템플릿: JSP (JavaServer Pages)
-인증: Spring Security + OAuth2
-데이터베이스 연결: JDBC Template, MyBatis
-HTTP 클라이언트: RestTemplate
+- **프레임워크**: Spring Boot 2.6.7
+- **빌드 도구**: Gradle
+- **뷰 템플릿**: JSP (JavaServer Pages)
+- **인증**: Spring Security + OAuth2
+- **데이터베이스 연결**: JDBC Template, MyBatis
+- **HTTP 클라이언트**: RestTemplate
 
-5.2 FastAPI 애플리케이션
+### FastAPI 애플리케이션
 
-프레임워크: FastAPI
-ORM: SQLAlchemy
-데이터 처리: Pandas, NumPy
-AI 모델:
+- **프레임워크**: FastAPI
+- **ORM**: SQLAlchemy
+- **데이터 처리**: Pandas, NumPy
+- **AI 모델**:
 
-이미지 진단: ONNX Runtime, PyTorch
+이미지 진단: Tensorflow, PyTorch, ONNX Runtime
 건강 점수: RandomForest, SHAP
 챗봇: LangChain, Gemma, LM studio (LLM)
 
