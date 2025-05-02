@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/badge/langchain-000000?style=for-the-badge&logo=chainlink&logoColor=white" />
   <img src="https://img.shields.io/badge/pytorch-EE4C2C?style=for-the-badge&logo=chainlink&logoColor=white" />
 </p>
+
 ## 프로젝트 기간
 기간 : 25/04/01~2025/04/30
 
@@ -43,6 +44,14 @@ Spring Boot 서버 실행
 http://localhost:8080
 
 ### 팀원 구성
+
+| 이름 | 역할 |
+|------|------|
+| 권순규 | 팀장, spring security, RAG기반 헬스케어 챗봇 |
+| 하인솔 | 사용자 맞춤 식단 추천|
+| 석송이 | 건강 점수 체크, 건강 점수 기반 영양제 추천 챗봇 |
+| 송지연 | 의료 이미지 질환 예측 모델, 장소 추천 챗봇 |
+
 <table>
   <tr>
     <td align="center">
