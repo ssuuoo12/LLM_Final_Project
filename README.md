@@ -89,7 +89,7 @@
 
 | 기능 | 라이브러리 |
 |------|------|
-| 챗봇 | LangChain, Gemma, LM studio (LLM) |
+| 챗봇 | LangChain, Gemma, LM studio |
 | 식단 | pandas, logging, pydantic |
 | 건강 점수 | RandomForest, SHAP |
 | 이미지 진단 | Tensorflow, PyTorch, ONNX Runtime |
