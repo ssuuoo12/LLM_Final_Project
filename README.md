@@ -5,7 +5,6 @@
   <img src="https://img.shields.io/badge/spring-boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
   <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
   <img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=mariadb&logoColor=white" />
-  <img src="https://img.shields.io/badge/langchain-000000?style=for-the-badge&logo=chainlink&logoColor=white" />
   <img src="https://img.shields.io/badge/pytorch-EE4C2C?style=for-the-badge&logo=chainlink&logoColor=white" />
 </p>
 
@@ -84,6 +83,7 @@
 - **프레임워크**: FastAPI
 - **ORM**: SQLAlchemy
 - **데이터 처리**: Pandas, NumPy
+  
 - **AI 모델**:
 | 기능 | 라이브러리 |
 |------|------|
