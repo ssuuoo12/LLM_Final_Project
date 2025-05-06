@@ -84,7 +84,8 @@
 - **ORM**: SQLAlchemy
 - **데이터 처리**: Pandas, NumPy
   
-- **AI 모델**:
+| AI 모델 |
+|------|------|
 | 기능 | 라이브러리 |
 | 챗봇 | LangChain, Gemma, LM studio (LLM) |
 | 식단 | pandas, logging, pydantic |
