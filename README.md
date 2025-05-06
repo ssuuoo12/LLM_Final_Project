@@ -3,8 +3,8 @@
   <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/fastapi-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
   <img src="https://img.shields.io/badge/spring-boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
-  <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
   <img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=mariadb&logoColor=white" />
+  <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
   <img src="https://img.shields.io/badge/pytorch-EE4C2C?style=for-the-badge&logo=chainlink&logoColor=white" />
 </p>
 
@@ -86,7 +86,6 @@
   
 - **AI 모델**:
 | 기능 | 라이브러리 |
-|------|------|
 | 챗봇 | LangChain, Gemma, LM studio (LLM) |
 | 식단 | pandas, logging, pydantic |
 | 건강 점수 | RandomForest, SHAP |
