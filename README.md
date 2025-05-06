@@ -83,6 +83,7 @@
 - **프레임워크**: FastAPI
 - **ORM**: SQLAlchemy
 - **데이터 처리**: Pandas, NumPy
+
   
 ## AI 모델
 
